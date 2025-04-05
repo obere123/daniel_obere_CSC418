@@ -17,6 +17,11 @@ ContemporaryList=[contemporary1,contemporary2,contemporary3]
 ModernList=[modern1,modern2,modern3]
 TraditionalList=[traditional1,traditional2,traditional3]
 
+#Start of week 2
+
+
+#End of week 2
+
 
 
 

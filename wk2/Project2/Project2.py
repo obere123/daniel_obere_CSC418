@@ -2,17 +2,17 @@ import cv2
 import matplotlib.pyplot as plt
 import numpy as np 
 
-dumebi_image=cv2.imread("dumebi.jpeg")
-bimpe_image=cv2.imread("bimpe.jpeg")
-ada_image=cv2.imread("ada.jpeg")
-chima_image=cv2.imread("chima.jpeg")
-clement_image=cv2.imread("clement.jpeg")
-esonu_image=cv2.imread("esonu.jpeg")
-love_image=cv2.imread("love.jpeg")
-maryam_image=cv2.imread("maryam.jpeg")
-miracle_image=cv2.imread("miracle.jpeg")
-oyinda_image=cv2.imread("oyinda.jpeg")
-tomi_image=cv2.imread("tomi.jpeg")
+dumebi_image=cv2.imread("./dumebi.jpeg")
+bimpe_image=cv2.imread("./bimpe.jpeg")
+ada_image=cv2.imread("./ada.jpeg")
+chima_image=cv2.imread("./chima.jpeg")
+clement_image=cv2.imread("./clement.jpeg")
+esonu_image=cv2.imread("./esonu.jpeg")
+love_image=cv2.imread("./love.jpeg")
+maryam_image=cv2.imread("./maryam.jpeg")
+miracle_image=cv2.imread("./miracle.jpeg")
+oyinda_image=cv2.imread("./oyinda.jpeg")
+tomi_image=cv2.imread("./tomi.jpeg")
 
 lyst=["Dumebi", "Bimpe", "Ada","Chima", "Clement", "Esonu", "Love","Maryam", "Miracle", "Oyinda", "Tomi"]
 
@@ -28,22 +28,18 @@ picture_dict={
 "Miracle": miracle_image,
 "Oyinda": oyinda_image,
 "Tomi": tomi_image
-
-
 }
 
 random_number=2112061254
 matric_dict={}
 
-#print(picture_dict.len())
-
-for x in range(len(picture_dict)):
-    matric_dict[lyst[x]]=random_number
+for i in lyst:
+    matric_dict[i]=random_number
     random_number+=1
 print(matric_dict)
 
 def InverseTransform(imagex):
-    image = cv2.imread(imagex)
+    image = imagex
 
     # Plot the original image
     plt.subplot(1, 2, 1)
@@ -68,7 +64,7 @@ def InverseTransform(imagex):
 
 def ImageScaling(imagex):
     # Load the image
-    image = cv2.imread(imagex)
+    image = imagex
 
     # Plot the original image
     plt.subplot(1, 2, 1)
@@ -92,16 +88,14 @@ def ImageScaling(imagex):
 
 
 def Removing_Noise(imagex):
-    # Load the image
-    image = cv2.imread(imagex)
 
      # Plot the original image
     plt.subplot(1, 2, 1)
     plt.title("Original")
-    plt.imshow(image)
+    plt.imshow(imagex)
 
     # Remove noise using a median filter
-    filtered_image = cv2.medianBlur(image, 15)
+    filtered_image = cv2.medianBlur(imagex, 15)
 
     # Save the filtered image
     #cv2.imwrite('img/Median-Blur.jpg', filtered_image)
@@ -117,7 +111,7 @@ def Removing_Noise(imagex):
 
 def Adjusting_Brightness(imagex):
     # Load the image
-    image = cv2.imread(imagex)
+    image = imagex
 
     # Plot the original image
     plt.subplot(1, 2, 1)
@@ -140,11 +134,11 @@ def Adjusting_Brightness(imagex):
     # Show the images
     plt.show()
 
-def AddingImages(imagex,imagey):
+def AddingImages(imagex):
     #import cv2
 
     image1=cv2.imread(imagex)
-    image2=cv2.imread(imagey)
+    image2=cv2.imread(imagex)
 
     #resize images
 
@@ -172,7 +166,7 @@ def AddingImages(imagex,imagey):
         cv2.destroyAllWindows()
 
 def SharpeningImages(imagex):
-    image = cv2.imread(imagex)
+    image = imagex
 
     # Plot the original image
     plt.subplot(1, 2, 1)
@@ -197,12 +191,14 @@ def SharpeningImages(imagex):
 
     # Show both images
     plt.show()
-
-nameinput=input("Enter in your name  ")
-if nameinput not in lyst:
-    print("Name does not exist")
-else:
-    matric_no=input("Enter in matric no")
-    if matric_dict[nameinput]== matric_no:
-        lystt=["Removing Noise", "Image Scaling", "Inverse Transformation", "Sharpening Images", "Adding Images", "Adjusting Brightness"]
-        inputt=input(f"Enter in function you want from the following  {lystt}")
+Removing_Noise(love_image)
+# """
+# nameinput=input("Enter in your name  ")
+# if nameinput not in lyst:
+#     print("Name does not exist")
+# else:
+#     matric_no=input("Enter in matric no")
+#     if matric_dict[nameinput]== matric_no:
+#         lystt=["Removing Noise", "Image Scaling", "Inverse Transformation", "Sharpening Images", "Adding Images", "Adjusting Brightness"]
+#         inputt=input(f"Enter in function you want from the following  {lystt}")"
+#         """
